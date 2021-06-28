@@ -6,10 +6,10 @@
 import { defineComponent } from 'vue'
 import { login } from '@/api/user'
 export default defineComponent({
-  mounted(){
-    login().then((res : any) => {
+  mounted() {
+    login().then((res: any) => {
       console.log(res)
     })
-  }
+  },
 })
 </script>
