@@ -1,8 +1,35 @@
-/* theme color */
-$--color-primary: teal;
+@use 'sass:math';
+@use 'sass:map';
 
-/* icon font path, required */
-$--font-path: '~element-plus/lib/theme-chalk/fonts';
-@import "node_modules/element-plus/packages/theme-chalk/src/index";
+$--colors: (
+  'primary': (
+    'base': teal,
+  ),
+  'success': (
+    'base': #67c23a,
+  ),
+  'warning': (
+    'base': #e6a23c,
+  ),
+  'danger': (
+    'base': #f56c6c,
+  ),
+  'error': (
+    'base': #db2828,
+  ),
+  'info': (
+    'base': #42b8dd,
+  ),
+);
 
-@import 'node_modules/element-plus/lib/theme-chalk/display';
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  // do not use same name, it will override.
+  $colors: $--colors,
+);
+// if you want to import all
+// @use "element-plus/theme-chalk/src/index.scss" as *;
+
+// You can comment it to hide debug info.
+// @debug $--colors;
+
+@use 'element-plus/theme-chalk/src/index.scss' as *;

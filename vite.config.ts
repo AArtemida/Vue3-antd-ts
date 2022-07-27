@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-const path = require('path')
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,18 +8,18 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/': {
-        target:'http://localhost:3000',
+        target: 'http://localhost:3000',
         changeOrigin: true,
-        rewrite: (p) => p.replace(/^\/api/, ''),
+        rewrite: p => p.replace(/^\/api/, ''),
       },
-    }
+    },
   },
-  css:{
+  css: {
     preprocessorOptions: {
-       scss: {
-         additionalData: `@import "./src/styles/global.scss";`
-       }
-     }
+      scss: {
+        additionalData: `@use "./src/styles/element-variables.scss" as *;@import "./src/styles/global.scss";`,
+      },
+    },
   },
   resolve: {
     alias: {

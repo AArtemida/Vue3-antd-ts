@@ -16,13 +16,9 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  .add{
-    background: lightblue;
-  }
 }
 .el-header {
-  background: $primary;
+  background: var(--color-primary);
   color: #fff;
 }
 </style>

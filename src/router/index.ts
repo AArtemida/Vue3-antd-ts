@@ -31,6 +31,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  let title: any = to.meta.title ? to.meta.title : 'project'
+  window.document.title = title
   next()
 })
 
